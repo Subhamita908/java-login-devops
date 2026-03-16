@@ -11,19 +11,19 @@ pipeline {
 
         stage('Build Application') {
             steps {
-                sh 'mvn clean package'
+                bat 'mvn clean package'
             }
         }
 
         stage('Build Docker Image') {
             steps {
-                sh 'docker build -t login-app .'
+                bat 'docker build -t login-app .'
             }
         }
 
         stage('Run Container') {
             steps {
-                sh 'docker run -d -p 8080:8080 login-app'
+                bat 'docker run -d -p 8080:8080 login-app'
             }
         }
 
